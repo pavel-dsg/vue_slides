@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js for backend developers</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Vue.js for backend folks
+
+---
+
+# Use Vue.js for your next frontend project
+
+## - Because it's simple!
+Vue was created by Evan You after working for Google using AngularJS in a number of projects. He later summed up his thought process: "I figured, what if I could just extract the part that I really liked about Angular and build something really lightweight."
+
+???
+Existing frameworks:  
+Angular  
+React  
+Vue  
+More...  
+Jquery is not a framework...  
+Project is anything that needs a single page application - at min. a static page
+with dynamic data
+---
+
+# Building an app with REST backend
+
+???
+An app: a list of DSG employees with an "add" button  
+An API: /employees with GET and POST
+---
+
+# Static
+
+???
+```
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>DSG Emplyees</title>
+</head>
+<body>
+  <div id="app">
+    <li>
+      Elan  Sasson  2015-01-01T00:00:00.000Z
+    </li><li>
+      Pavel  Suchman  2019-05-04T22:00:00.000Z
+    </li>
+  </div>
+<body>
+</html>
+```
+---
+
+# Dynamic with local content - use VUE!
+
+???
+```
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+  <title>DSG Emplyees</title>
+</head>
+<body>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <div id="app">
+    <li v-for="employee in employees">
+      {{ employee.name }}  {{ employee.last_name }}  {{ employee.started }}
+    </li>
+  </div>
+  <script>
+  var app = new Vue({
+    el:  '#app',
+    data: {
+      employees: [
+        {"started":"2015-01-01T00:00:00.000Z","last_name":"Sasson","name":"Elan"},
+        {"started":"2019-05-04T22:00:00.000Z","last_name":"Suchman","name":"Pavel"}
+    ]
+  }
+  })
+  </script>
+</body>
+</html>
+```
+---
+
+# Dynamic with content from an API
+
+???
+---
+
+# Local state - sorting
+
+---
+
+# Remote state - adding an employee
+
+???
+    </textarea>
+
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
